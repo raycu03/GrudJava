@@ -36,7 +36,7 @@ public class ProductoController {
 		public void actualizar( @RequestBody Producto producto) {
 			
 			Producto actualizar=  repositori.stream().filter(Producto -> Producto.getCodigo().matches(producto.getCodigo()))
-					.findAny().orElseThrow(() -> new RuntimeException("objeto actualizado"));
+					.findAny().orElseThrow(() -> new RegistroNoEncontradoExeception());
 			
 			//el no editado
 			int repositorioIndexOf= repositori.indexOf(actualizar);
