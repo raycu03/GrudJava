@@ -24,6 +24,8 @@ public class ExceptionsHandler {
 		ErrorCode ec= new ErrorCode();
 		ec.setCodigo(this.getId());
 		ec.setMensaje("error no encontrado");
+		logError(ec, e);
+
 		
 		return ec;
 	}
@@ -34,6 +36,7 @@ public class ExceptionsHandler {
 		ErrorCode ec= new ErrorCode();
 		ec.setCodigo(this.getId());
 		ec.setMensaje(e.getMessage());
+		logError(ec, e);
 		
 		return ec;
 		
