@@ -1,7 +1,12 @@
 package com.example.demo.dto;
 
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -9,9 +14,13 @@ import javax.persistence.Table;
 public class Producto {
 	
 	@Id
+	@Column(name = "codigo")
 	private String codigo;
 	private String nombre;
 	private Double valor;
+	
+
+
 	public Producto() {
 		// TODO Auto-generated constructor stub
 	}
@@ -28,7 +37,7 @@ public class Producto {
 		this.codigo = codigo;
 	}
 	public String getNombre() {
-		return nombre;
+		return nombre;+
 	}
 	public void setNombre(String nombre) {
 		this.nombre = nombre;
@@ -40,5 +49,5 @@ public class Producto {
 		this.valor = valor;
 	}
 	
-
+	
 }
