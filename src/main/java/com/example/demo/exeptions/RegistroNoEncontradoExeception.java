@@ -4,7 +4,7 @@ public class RegistroNoEncontradoExeception extends RuntimeException{
 
 	public RegistroNoEncontradoExeception() {
 		
-		super("hhf");
+		super("registro no encontrado");
 		
 	}
 }

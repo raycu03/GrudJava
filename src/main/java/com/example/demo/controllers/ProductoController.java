@@ -33,30 +33,32 @@ public class ProductoController {
 		
 	}
 	
-	@GetMapping("/{codigo}") Optional<Producto> buscar(@PathVariable String codigo) {
+	@GetMapping("/{codigo}") Producto buscar(@PathVariable String codigo) {
 		/*return repositori.stream().filter(Producto  -> Producto.getCodigo().matches(codigo))
 				.findAny().orElseThrow(()-> new RegistroNoEncontradoExeception());*/
 		//return productoRepository.findById(codigo);
-		return productoRepository.findById(codigo);
+		return productoRepository.findById(codigo).orElseThrow(() -> new RegistroNoEncontradoExeception());
 	}
 	
 	@DeleteMapping("/{codigo}") void borrar(@PathVariable String codigo) {
 		//repositori.remove(eli);
+		productoRepository.findById(codigo).orElseThrow(() -> new RegistroNoEncontradoExeception());
 		productoRepository.deleteById(codigo);
 		
 		
 	}
 	
 	//actualizar producto
-		@PutMapping ("/editar")
-		public void actualizar( @RequestBody Producto producto) {
+		@PutMapping ()
+		public void actualizar( @RequestBody Producto Producto) {
 			
 			/*Producto actualizar=  repositori.stream().filter(Producto -> Producto.getCodigo().matches(producto.getCodigo()))
 					.findAny().orElseThrow(() -> new RegistroNoEncontradoExeception());
-			
-		
 			int repositorioIndexOf= repositori.indexOf(actualizar);
 			repositori.set(repositorioIndexOf,producto);*/
+			
+			productoRepository.findById(Producto.getCodigo()).orElseThrow(() -> new RegistroNoEncontradoExeception());
+			productoRepository.save(Producto);
 
 		}
 		
