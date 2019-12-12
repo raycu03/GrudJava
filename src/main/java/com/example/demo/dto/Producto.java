@@ -2,8 +2,10 @@ package com.example.demo.dto;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity
+@Table(name="productos")
 public class Producto {
 	
 	@Id

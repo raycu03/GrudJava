@@ -52,11 +52,6 @@ public class ProductoController {
 		@PutMapping ()
 		public void actualizar( @RequestBody Producto Producto) {
 			
-			/*Producto actualizar=  repositori.stream().filter(Producto -> Producto.getCodigo().matches(producto.getCodigo()))
-					.findAny().orElseThrow(() -> new RegistroNoEncontradoExeception());
-			int repositorioIndexOf= repositori.indexOf(actualizar);
-			repositori.set(repositorioIndexOf,producto);*/
-			
 			productoRepository.findById(Producto.getCodigo()).orElseThrow(() -> new RegistroNoEncontradoExeception());
 			productoRepository.save(Producto);
 
