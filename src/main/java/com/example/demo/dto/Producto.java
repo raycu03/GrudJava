@@ -1,10 +1,18 @@
 package com.example.demo.dto;
 
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+@Entity
 public class Producto {
+	
+	@Id
 	private String codigo;
 	private String nombre;
 	private Double valor;
-	
+	public Producto() {
+		// TODO Auto-generated constructor stub
+	}
 	public Producto(String codigo, String nombre, Double valor) {
 		super();
 		this.codigo = codigo;

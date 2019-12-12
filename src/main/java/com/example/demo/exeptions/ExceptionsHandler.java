@@ -13,7 +13,6 @@ import com.example.demo.dto.ErrorCode;
 
 
 @RestControllerAdvice 
-
 public class ExceptionsHandler {
 
 	private static final Logger LOG= Logger.getLogger(ExceptionsHandler.class.getName());
