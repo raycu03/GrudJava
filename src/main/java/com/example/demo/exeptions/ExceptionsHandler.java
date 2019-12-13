@@ -77,6 +77,17 @@ public class ExceptionsHandler {
 		
 	}
 	
+	@ExceptionHandler(NombreExeception.class)
+	@ResponseStatus(HttpStatus.NOT_FOUND)
+	public ErrorCode nombreExeception(NombreExeception e) {
+		ErrorCode ec= new ErrorCode();
+		ec.setCodigo(this.getId());
+		ec.setMensaje(e.getMessage());
+		logError(ec, e);
+		
+		return ec;
+		
+	}
 	private void logError(ErrorCode ec,Exception e) {
 		LOG.severe(ec.getCodigo());
 		LOG.severe(ec.getMensaje());
