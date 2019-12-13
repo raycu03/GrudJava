@@ -18,7 +18,6 @@ public class ProductoController {
 	@Autowired
 	private ProductoRepository  productoRepository;
 	
-	private List <Producto> repositori =new ArrayList<>();
 	
 	@GetMapping()
 	List<Producto> consultar(){
@@ -27,35 +26,33 @@ public class ProductoController {
 	}
 	
 
-	@PostMapping void crear (@RequestBody Producto Producto) {
-		productoRepository.save(Producto);
-		//repositori.add(Producto);
+	@PostMapping void crear (@RequestBody Producto producto) {
+		productoRepository.save(producto);
+
 		
 	}
 	
 	@GetMapping("/{codigo}") Producto buscar(@PathVariable String codigo) {
-		/*return repositori.stream().filter(Producto  -> Producto.getCodigo().matches(codigo))
-				.findAny().orElseThrow(()-> new RegistroNoEncontradoExeception());*/
-		//return productoRepository.findById(codigo);
+
 		return productoRepository.findById(codigo).orElseThrow(() -> new RegistroNoEncontradoExeception());
 	}
 	
 	@DeleteMapping("/{codigo}") void borrar(@PathVariable String codigo) {
-		//repositori.remove(eli);
 		productoRepository.findById(codigo).orElseThrow(() -> new RegistroNoEncontradoExeception());
 		productoRepository.deleteById(codigo);
 		
 		
 	}
 	
-	//actualizar producto
 		@PutMapping ()
-		public void actualizar( @RequestBody Producto Producto) {
+		public void actualizar( @RequestBody Producto producto) {
 			
-			productoRepository.findById(Producto.getCodigo()).orElseThrow(() -> new RegistroNoEncontradoExeception());
-			productoRepository.save(Producto);
+			productoRepository.findById(producto.getCodigo()).orElseThrow(() -> new RegistroNoEncontradoExeception());
+			productoRepository.save(producto);
 
 		}
+		
+		
 		
 		
 
