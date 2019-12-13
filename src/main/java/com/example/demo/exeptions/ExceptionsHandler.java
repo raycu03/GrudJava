@@ -41,6 +41,42 @@ public class ExceptionsHandler {
 		
 	}
 	
+	@ExceptionHandler(NegativoExeception.class)
+	@ResponseStatus(HttpStatus.NOT_FOUND)
+	public ErrorCode negativoExeception(NegativoExeception e) {
+		ErrorCode ec= new ErrorCode();
+		ec.setCodigo(this.getId());
+		ec.setMensaje(e.getMessage());
+		logError(ec, e);
+		
+		return ec;
+		
+	}
+	
+	@ExceptionHandler(RangoExeception.class)
+	@ResponseStatus(HttpStatus.NOT_FOUND)
+	public ErrorCode rangoExeception(RangoExeception e) {
+		ErrorCode ec= new ErrorCode();
+		ec.setCodigo(this.getId());
+		ec.setMensaje(e.getMessage());
+		logError(ec, e);
+		
+		return ec;
+		
+	}
+	
+	@ExceptionHandler(CaracteresExeception.class)
+	@ResponseStatus(HttpStatus.NOT_FOUND)
+	public ErrorCode caracteresExeception(CaracteresExeception e) {
+		ErrorCode ec= new ErrorCode();
+		ec.setCodigo(this.getId());
+		ec.setMensaje(e.getMessage());
+		logError(ec, e);
+		
+		return ec;
+		
+	}
+	
 	private void logError(ErrorCode ec,Exception e) {
 		LOG.severe(ec.getCodigo());
 		LOG.severe(ec.getMensaje());
