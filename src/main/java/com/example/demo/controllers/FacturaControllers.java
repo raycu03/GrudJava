@@ -30,16 +30,16 @@ public class FacturaControllers {
 	
 	@PostMapping()
 	void crearFactura(@RequestBody Factura factura) {
-		List<String> codigos = new ArrayList();
+		List<Long> codigos = new ArrayList();
 		for (Item item : factura.getList()) {
-			codigos.add(item.getProducto().getCodigo());
+			codigos.add(item.getProducto().getId());
 		}
 		List<Item> guardarEnFactura = new ArrayList();
 		List<Producto> productos = productoRepository.findAllById(codigos);
 		float vT = 0;
 		for (Item item : factura.getList()) {
 			for (Producto pro : productos) {
-				if (pro.getCodigo().equals(item.getProducto().getCodigo())) {
+				if (pro.getId().equals(item.getProducto().getId())) {
 					item.setProducto(pro); 
 					item.setValor_total(item.getCantidad()*pro.getValor());
 					vT = vT + (item.getCantidad() * pro.getValor());
@@ -53,7 +53,7 @@ public class FacturaControllers {
 
 	}
 
-	@GetMapping("/factura")
+	@GetMapping()
 	public List<Factura>consultar(){
 		return facturaRepository.findAll();
 	}

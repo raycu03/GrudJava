@@ -32,14 +32,14 @@ public class ProductoController {
 		
 	}
 	
-	@GetMapping("/{codigo}") Producto buscar(@PathVariable String codigo) {
+	@GetMapping("/{id}") Producto buscar(@PathVariable Long id) {
 
-		return productoRepository.findById(codigo).orElseThrow(() -> new RegistroNoEncontradoExeception());
+		return productoRepository.findById(id).orElseThrow(() -> new RegistroNoEncontradoExeception());
 	}
 	
-	@DeleteMapping("/{codigo}") void borrar(@PathVariable String codigo) {
-		productoRepository.findById(codigo).orElseThrow(() -> new RegistroNoEncontradoExeception());
-		productoRepository.deleteById(codigo);
+	@DeleteMapping("/{codigo}") void borrar(@PathVariable Long id) {
+		productoRepository.findById(id).orElseThrow(() -> new RegistroNoEncontradoExeception());
+		productoRepository.deleteById(id);
 		
 		
 	}
@@ -47,7 +47,7 @@ public class ProductoController {
 		@PutMapping ()
 		public void actualizar( @RequestBody Producto producto) {
 			
-			productoRepository.findById(producto.getCodigo()).orElseThrow(() -> new RegistroNoEncontradoExeception());
+			productoRepository.findById(producto.getId()).orElseThrow(() -> new RegistroNoEncontradoExeception());
 			productoRepository.save(producto);
 
 		}

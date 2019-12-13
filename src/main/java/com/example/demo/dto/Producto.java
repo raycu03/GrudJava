@@ -2,28 +2,37 @@ package com.example.demo.dto;
 
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
 @Table(name="productos")
-public class Producto {
+public class Producto extends BaseEntity{
 	
 	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;//numero
 	private String codigo;
 	private String nombre;
 	private Float valor;
 	
-
-
 	public Producto() {
 		// TODO Auto-generated constructor stub
 	}
-	public Producto(String codigo, String nombre, Float valor) {
+	public Producto(Long id, String codigo, String nombre, Float valor) {
 		super();
+		this.id = id;
 		this.codigo = codigo;
 		this.nombre = nombre;
 		this.valor = valor;
+	}
+	public Long getId() {
+		return id;
+	}
+	public void setId(Long id) {
+		this.id = id;
 	}
 	public String getCodigo() {
 		return codigo;
@@ -44,5 +53,6 @@ public class Producto {
 		this.valor = valor;
 	}
 	
-	
+
+
 }

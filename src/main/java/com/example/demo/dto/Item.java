@@ -11,7 +11,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="items")
-public class Item {
+public class Item extends BaseEntity{
 
     
     @Id
@@ -35,12 +35,12 @@ public class Item {
 	}
 
 
-	public long getId() {
+	public Long getId() {
 		return id;
 	}
 
 
-	public void setId(long id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 

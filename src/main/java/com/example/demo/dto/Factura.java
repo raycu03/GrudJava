@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="factura")
-public class Factura {
+public class Factura extends BaseEntity{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
