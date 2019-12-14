@@ -3,6 +3,7 @@ package com.example.demo.infrastructura.adapter;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.example.demo.dominio.model.Producto;
 import com.example.demo.dominio.service.ProductoService;
@@ -10,6 +11,7 @@ import com.example.demo.infraestructura.mapper.ProductoMapper;
 import com.example.demo.infraestructura.repository.database.ProductoRepository;
 import com.example.demo.shared.dominio.Id;
 
+@Component
 public class ProductoAdapter implements ProductoService{
 	@Autowired
 	public ProductoRepository productoRepository;
@@ -36,7 +38,7 @@ public class ProductoAdapter implements ProductoService{
 	@Override
 	public Producto buscarXId(Id id) {
 		// TODO Auto-generated method stub
-		return productoMapper.recibir(productoRepository.findById(id.getValue()).get());
+		return productoMapper.recibir(productoRepository.findById(id.getId()).get());
 	}
 	
 }
