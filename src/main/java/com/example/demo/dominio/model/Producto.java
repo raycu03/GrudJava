@@ -20,6 +20,8 @@ public class Producto {
 		this.nombre = nombre;
 		this.valor = valor;
 	}
+
+
 	public Id getId() {
 		return id;
 	}

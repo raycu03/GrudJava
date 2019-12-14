@@ -11,15 +11,19 @@ import com.example.demo.shared.infraestructura.mapper.MapperApiRest;
 public class ProductoMapper implements MapperApiRest<Producto, ProductoDto>{
 	
 	@Override
-	public Producto dto(ProductoDto o) { 
-		return Producto.of( new Id(o.getId()),new Codigo(o.getCodigo()), new Nombre(o.getNombre()), new Valor(o.getValor()));
+	public Producto recibir(ProductoDto o) { 
+		return Producto.of(new Id(o.getId()),new Codigo(o.getCodigo()), new Nombre(o.getNombre()), new Valor(o.getValor()));
 	
 	}
 
 	@Override
-	public ProductoDto model(Producto i) {
-		// TODO Auto-generated method stub
-		return new ProductoDto(i.getId().getId(), i.getCodigo().getCodigo(), i.getNombre().getNombre(), i.getValor().getvalor());
+	public ProductoDto convertir(Producto i) {
+		ProductoDto pd = new ProductoDto();
+		pd.setId(i.getId().getId());
+		pd.setCodigo(i.getCodigo().getCodigo());
+		pd.setNombre(i.getNombre().getNombre());
+		pd.setValor(i.getValor().getvalor());
+		return pd;
 	}
 
 }
