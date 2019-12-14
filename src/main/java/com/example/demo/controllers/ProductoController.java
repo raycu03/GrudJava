@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 
-import com.example.demo.dto.Producto;
+import com.example.demo.dto.ProductoDto;
 import com.example.demo.exeptions.RegistroNoEncontradoExeception;
-import com.example.demo.repository.ProductoRepository;
+import com.example.demo.infraestructura.repository.database.ProductoRepository;
 
 
 @RestController
@@ -20,19 +20,19 @@ public class ProductoController {
 	
 	
 	@GetMapping()
-	List<Producto> consultar(){
+	List<ProductoDto> consultar(){
 		return productoRepository.findAll();
 		
 	}
 	
 
-	@PostMapping void crear (@RequestBody Producto producto) {
+	@PostMapping void crear (@RequestBody ProductoDto producto) {
 		productoRepository.save(producto);
 
 		
 	}
 	
-	@GetMapping("/{id}") Producto buscar(@PathVariable Long id) {
+	@GetMapping("/{id}") ProductoDto buscar(@PathVariable Long id) {
 
 		return productoRepository.findById(id).orElseThrow(() -> new RegistroNoEncontradoExeception());
 	}
@@ -45,7 +45,7 @@ public class ProductoController {
 	}
 	
 		@PutMapping ()
-		public void actualizar( @RequestBody Producto producto) {
+		public void actualizar( @RequestBody ProductoDto producto) {
 			
 			productoRepository.findById(producto.getId()).orElseThrow(() -> new RegistroNoEncontradoExeception());
 			productoRepository.save(producto);

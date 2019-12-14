@@ -9,7 +9,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="productos")
-public class Producto extends BaseEntity{
+public class ProductoDto extends BaseEntity{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -18,10 +18,10 @@ public class Producto extends BaseEntity{
 	private String nombre;
 	private Float valor;
 	
-	public Producto() {
+	public ProductoDto() {
 		// TODO Auto-generated constructor stub
 	}
-	public Producto(Long id, String codigo, String nombre, Float valor) {
+	public ProductoDto(Long id, String codigo, String nombre, Float valor) {
 		super();
 		this.id = id;
 		this.codigo = codigo;

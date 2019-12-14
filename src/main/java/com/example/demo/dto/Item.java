@@ -20,13 +20,13 @@ public class Item extends BaseEntity{
 	private float cantidad;
 	private float valor_total;
 	
-	@OneToOne(targetEntity = Producto.class)
-    private Producto producto;
+	@OneToOne(targetEntity = ProductoDto.class)
+    private ProductoDto producto;
 	
 	public Item() {
 		// TODO Auto-generated constructor stub
 	}
-	public Item(long id, float cantidad, float valor_total, Producto producto) {
+	public Item(long id, float cantidad, float valor_total, ProductoDto producto) {
 		super();
 		this.id = id;
 		this.cantidad = cantidad;
@@ -65,12 +65,12 @@ public class Item extends BaseEntity{
 	}
 
 
-	public Producto getProducto() {
+	public ProductoDto getProducto() {
 		return producto;
 	}
 
 
-	public void setProducto(Producto producto) {
+	public void setProducto(ProductoDto producto) {
 		this.producto = producto;
 	}
 
