@@ -7,11 +7,19 @@ import com.example.demo.shared.dominio.Valor;
 
 public class Producto {
 
-    private Id id;//numero
-	private Codigo codigo;
-	private Nombre nombre;
-	private Valor valor;
+    private final Id id;//numero
+	private final Codigo codigo;
+	private final Nombre nombre;
+	private final Valor valor;
 	
+ 
+	private Producto(Id id, Codigo codigo, Nombre nombre, Valor valor) {
+		super();
+		this.id = id;
+		this.codigo = codigo;
+		this.nombre = nombre;
+		this.valor = valor;
+	}
 	public Id getId() {
 		return id;
 	}
@@ -24,10 +32,12 @@ public class Producto {
 	public Valor getValor() {
 		return valor;
 	}
-	public static Producto of(Nombre nombre2, Valor valor2, Codigo codigo2, Id id2) {
+	public static Producto of(Id id, Codigo codigo, Nombre nombre, Valor valor) {
 		// TODO Auto-generated method stub
-		return null;
+		return new Producto(id, codigo, nombre, valor);
 	}
+
+
 
 
 	

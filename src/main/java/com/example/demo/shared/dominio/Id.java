@@ -4,10 +4,10 @@ import com.example.demo.exeptions.RangoExeception;
 
 public class Id {
 
-	private final Long value;
+	private final Long id;
 	public Id(Long id) {
 
-		this.value = id;
+		this.id = id;
 		if (id>99999) {
 			
 			throw new RangoExeception();
@@ -15,8 +15,8 @@ public class Id {
 		
 		
 	}
-	public Long getValue() {
-		return value;
+	public Long getId() {
+		return id;
 	}
 	
 

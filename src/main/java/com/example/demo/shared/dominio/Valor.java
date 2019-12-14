@@ -5,10 +5,10 @@ import com.example.demo.exeptions.RangoExeception;
 
 public class Valor {
 	
-	private final Float value;
+	private final Float valor;
 	
 	public Valor( Float valor) {
-		this.value = valor;
+		this.valor = valor;
 		
 		if (valor<1) {
 			throw new NegativoExeception();
@@ -21,8 +21,8 @@ public class Valor {
 		
 	}
 
-	public Float getValue() {
-		return value;
+	public Float getvalor() {
+		return valor;
 	}
 	
 

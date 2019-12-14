@@ -4,11 +4,11 @@ import com.example.demo.exeptions.NombreExeception;
 
 public class Nombre {
 	
-	private final String value;
+	private final String nombre;
 	
 	public Nombre(String nombre) {
 		
-		this.value= nombre;
+		this.nombre= nombre;
 		if(nombre.matches("[a-z]*")!=true) {
 			
 			throw new NombreExeception();
@@ -16,8 +16,8 @@ public class Nombre {
 			
 	}
 
-	public String getValu() {
-		return value;
+	public String getNombre() {
+		return nombre;
 	}
 	
 
