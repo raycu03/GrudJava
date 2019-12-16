@@ -9,7 +9,7 @@ public class Nombre {
 	public Nombre(String nombre) {
 		
 		this.nombre= nombre;
-		if(nombre.matches("[a-z]*")!=true) {
+		if(!nombre.matches("[A-Z].*")) {
 			
 			throw new NombreExeception();
 		}

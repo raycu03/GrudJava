@@ -1,32 +1,56 @@
 package com.example.demo.infraestructura.repository.adapters;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.demo.dominio.model.Producto;
 import com.example.demo.dominio.service.ProductoService;
+import com.example.demo.exeptions.RegistroNoEncontradoExeception;
+import com.example.demo.infraestructura.mapper.ProductoMapper;
+import com.example.demo.infraestructura.repository.database.ProductoRepository;
 import com.example.demo.shared.dominio.Id;
 
 @Service
-public class ProductoAdapter implements ProductoService{
+public class ProductoAdapter implements ProductoService {
+
+	@Autowired
+	public ProductoRepository productoRepository;
+
+	@Autowired
+	public ProductoMapper productoMapper;
 
 	@Override
-	public List<Id> buscarPorIds(List<Id> ids) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Producto> buscarPorIds(List<Id> id) {
+		return productoRepository.findAllById(id.stream().map(codigo -> codigo.getId()).collect(Collectors.toList()))
+				.stream().map(producto -> productoMapper.recibir(producto)).collect(Collectors.toList());
 	}
 
 	@Override
-	public Producto guardar(Producto producto) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<Producto> buscarTodo() {
+		return productoMapper.recibir(productoRepository.findAll());
 	}
 
 	@Override
-	public Producto buscarId(Id id) {
+	public void guardar(Producto producto) {
+		productoRepository.save(productoMapper.convertir(producto));
+	}
+
+	@Override
+	public Producto buscarXId(Long id) {
 		// TODO Auto-generated method stub
-		return null;
+
+		Producto producto = productoMapper
+				.recibir(productoRepository.findById(id).orElseThrow(() -> new RegistroNoEncontradoExeception()));
+
+		return producto;
+	}
+
+	public void borrar(Long id) {
+		productoRepository.deleteById(id);
+
 	}
 
 }

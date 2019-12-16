@@ -9,8 +9,10 @@ public interface ProductoService {
 
 	public List<Producto> buscarPorIds(List<Id> id);
 	public void guardar (Producto producto);
-	public Producto buscarXId(Id id);
+	public Producto buscarXId(Long id);
 	public List<Producto> buscarTodo();
+	public void borrar (Long id);
+
 	
 
 }

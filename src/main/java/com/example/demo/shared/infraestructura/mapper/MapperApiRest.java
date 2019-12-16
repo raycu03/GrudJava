@@ -7,6 +7,7 @@ public interface MapperApiRest  <I, O>{
 	
 	public I recibir(O o);
 	public O convertir(I i);
+	
 	public default List<O> convertir(List<I> instancias){
 		return instancias.stream().map(this::convertir).collect(Collectors.toList());
 	}
