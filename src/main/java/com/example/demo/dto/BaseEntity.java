@@ -12,6 +12,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 @MappedSuperclass
@@ -28,8 +29,9 @@ public class BaseEntity {
 	private Date fechaCreacionDate;
 	
 	@Temporal(TemporalType.TIMESTAMP)
-	@Column(name ="fecha_actu", nullable=false, updatable= true)
-	@CreatedDate
+	@Column(name ="fecha_actu", updatable= true)
+	
+	@LastModifiedDate
 	private Date fechaActu;
 
 	public Long getId() {

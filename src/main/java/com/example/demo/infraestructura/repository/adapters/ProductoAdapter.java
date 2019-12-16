@@ -25,32 +25,50 @@ public class ProductoAdapter implements ProductoService {
 	@Override
 	public List<Producto> buscarPorIds(List<Id> id) {
 		return productoRepository.findAllById(id.stream().map(codigo -> codigo.getId()).collect(Collectors.toList()))
-				.stream().map(producto -> productoMapper.recibir(producto)).collect(Collectors.toList());
+				.stream().map(producto -> productoMapper.apirecibir(producto)).collect(Collectors.toList());
+
 	}
 
 	@Override
 	public List<Producto> buscarTodo() {
-		return productoMapper.recibir(productoRepository.findAll());
+		return productoMapper.apirecibir(productoRepository.findAll());
 	}
 
 	@Override
 	public void guardar(Producto producto) {
-		productoRepository.save(productoMapper.convertir(producto));
+		
+		if(productoRepository.findByCodigo(producto.getCodigo().getCodigo()).isEmpty()) {
+			
+			productoRepository.save(productoMapper.apiconvertir(producto));
+			
+		}else {
+			throw new RegistroNoEncontradoExeception();
+		}
+		
+		
 	}
 
 	@Override
 	public Producto buscarXId(Long id) {
-		// TODO Auto-generated method stub
 
 		Producto producto = productoMapper
-				.recibir(productoRepository.findById(id).orElseThrow(() -> new RegistroNoEncontradoExeception()));
+				.apirecibir(productoRepository.findById(id).orElseThrow(() -> new RegistroNoEncontradoExeception()));
 
 		return producto;
 	}
 
 	public void borrar(Long id) {
+		productoRepository.findById(id).orElseThrow(() -> new RegistroNoEncontradoExeception());
 		productoRepository.deleteById(id);
 
+	}
+
+	@Override
+	public void actualizar(Producto producto) {
+		
+		productoRepository.save(productoMapper.apiconvertir(producto));
+
+		
 	}
 
 }

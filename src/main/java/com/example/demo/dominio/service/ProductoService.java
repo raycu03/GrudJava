@@ -12,6 +12,7 @@ public interface ProductoService {
 	public Producto buscarXId(Long id);
 	public List<Producto> buscarTodo();
 	public void borrar (Long id);
+	public void actualizar(Producto producto);
 
 	
 

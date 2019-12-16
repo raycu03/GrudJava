@@ -1,15 +1,19 @@
-package com.example.demo.dto;
+package com.example.demo.infraestructura.dto;
 
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 
 import javax.persistence.Table;
+
+import com.example.demo.dto.BaseEntity;
+
 
 @Entity
 @Table(name="productos")
 public class ProductoDto extends BaseEntity{
 	
-
+	@Column(unique = true)
 	private String codigo;
 	private String nombre;
 	private Float valor;
