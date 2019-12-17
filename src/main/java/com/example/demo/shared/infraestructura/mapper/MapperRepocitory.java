@@ -5,14 +5,14 @@ import java.util.stream.Collectors;
 
 public interface MapperRepocitory <I, O>{
 
-	public I recibir(O o);
-	public O convertir(I i);
+	public I dtoDominio(O o);
+	public O dominiodto(I i);
 	
-	public default List<O> convertir(List<I> instancias){
-		return instancias.stream().map(this::convertir).collect(Collectors.toList());
+	public default List<O> dominiodto(List<I> instancias){
+		return instancias.stream().map(this::dominiodto).collect(Collectors.toList());
 	}
-	public default List<I> recibir(List<O> instancias){
-		return instancias.stream().map(this::recibir).collect(Collectors.toList());
+	public default List<I> dtoDominio(List<O> instancias){
+		return instancias.stream().map(this::dtoDominio).collect(Collectors.toList());
 	}
 
 }

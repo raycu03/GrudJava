@@ -25,13 +25,13 @@ public class ProductoAdapter implements ProductoService {
 	@Override
 	public List<Producto> buscarPorIds(List<Id> id) {
 		return productoRepository.findAllById(id.stream().map(codigo -> codigo.getId()).collect(Collectors.toList()))
-				.stream().map(producto -> productoMapper.apirecibir(producto)).collect(Collectors.toList());
+				.stream().map(producto -> productoMapper.dtoDominioapi(producto)).collect(Collectors.toList());
 
 	}
 
 	@Override
 	public List<Producto> buscarTodo() {
-		return productoMapper.apirecibir(productoRepository.findAll());
+		return productoMapper.dtoDominioapi(productoRepository.findAll());
 	}
 
 	@Override
@@ -39,7 +39,7 @@ public class ProductoAdapter implements ProductoService {
 		
 		if(productoRepository.findByCodigo(producto.getCodigo().getCodigo()).isEmpty()) {
 			
-			productoRepository.save(productoMapper.apiconvertir(producto));
+			productoRepository.save(productoMapper.dominiodtoapi(producto));
 			
 		}else {
 			throw new RegistroNoEncontradoExeception();
@@ -52,7 +52,7 @@ public class ProductoAdapter implements ProductoService {
 	public Producto buscarXId(Long id) {
 
 		Producto producto = productoMapper
-				.apirecibir(productoRepository.findById(id).orElseThrow(() -> new RegistroNoEncontradoExeception()));
+				.dtoDominioapi(productoRepository.findById(id).orElseThrow(() -> new RegistroNoEncontradoExeception()));
 
 		return producto;
 	}
@@ -66,7 +66,7 @@ public class ProductoAdapter implements ProductoService {
 	@Override
 	public void actualizar(Producto producto) {
 		
-		productoRepository.save(productoMapper.apiconvertir(producto));
+		productoRepository.save(productoMapper.dominiodtoapi(producto));
 
 		
 	}

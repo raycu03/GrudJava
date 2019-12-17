@@ -5,14 +5,14 @@ import java.util.stream.Collectors;
 
 public interface MapperApiRest  <I, O>{
 	
-	public I apirecibir(O o);
-	public O apiconvertir(I i);
+	public I dtoDominioapi(O o);
+	public O dominiodtoapi(I i);
 	
-	public default List<O> apiconvertir(List<I> instancias){
-		return instancias.stream().map(this::apiconvertir).collect(Collectors.toList());
+	public default List<O> dominiodtoapi(List<I> instancias){
+		return instancias.stream().map(this::dominiodtoapi).collect(Collectors.toList());
 	}
-	public default List<I> apirecibir(List<O> instancias){
-		return instancias.stream().map(this::apirecibir).collect(Collectors.toList());
+	public default List<I> dtoDominioapi(List<O> instancias){
+		return instancias.stream().map(this::dtoDominioapi).collect(Collectors.toList());
 	}
 
 }

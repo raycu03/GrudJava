@@ -22,18 +22,36 @@ public class Producto {
 	}
 
 
+	
+
 	public Id getId() {
 		return id;
 	}
+
+
+
+
 	public Codigo getCodigo() {
 		return codigo;
 	}
+
+
+
+
 	public Nombre getNombre() {
 		return nombre;
 	}
+
+
+
+
 	public Valor getValor() {
 		return valor;
 	}
+
+
+
+
 	public static Producto of(Id id, Codigo codigo, Nombre nombre, Valor valor) {
 		// TODO Auto-generated method stub
 		return new Producto(id, codigo, nombre, valor);

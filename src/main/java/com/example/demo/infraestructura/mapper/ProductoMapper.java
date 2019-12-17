@@ -15,13 +15,13 @@ import com.example.demo.shared.infraestructura.mapper.MapperRepocitory;
 @Component
 public class ProductoMapper implements MapperApiRest<Producto, ProductoDto>, MapperRepocitory<Producto, ProductoRest> {
 
-	public Producto apirecibir(ProductoDto o) {
+	public Producto dtoDominioapi(ProductoDto o) {
 		return Producto.of(new Id(o.getId()), new Codigo(o.getCodigo()), new Nombre(o.getNombre()),
 				new Valor(o.getValor()));
 
 	}
 
-	public ProductoDto apiconvertir(Producto i) {
+	public ProductoDto dominiodtoapi(Producto i) {
 		ProductoDto pd = new ProductoDto();
 		pd.setId(i.getId().getId());
 		pd.setCodigo(i.getCodigo().getCodigo());
@@ -31,7 +31,7 @@ public class ProductoMapper implements MapperApiRest<Producto, ProductoDto>, Map
 	}
 
 	@Override
-	public Producto recibir(ProductoRest o) {
+	public Producto dtoDominio(ProductoRest o) {
 		// TODO Auto-generated method stub
 
 		return Producto.of(new Id(o.getId()), new Codigo(o.getCodigo()), new Nombre(o.getNombre()),
@@ -39,7 +39,7 @@ public class ProductoMapper implements MapperApiRest<Producto, ProductoDto>, Map
 	}
 
 	@Override
-	public ProductoRest convertir(Producto i) {
+	public ProductoRest dominiodto(Producto i) {
 		ProductoRest pd = new ProductoRest();
 		pd.setId(i.getId().getId());
 		pd.setCodigo(i.getCodigo().getCodigo());
