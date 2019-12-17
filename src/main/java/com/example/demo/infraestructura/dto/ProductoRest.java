@@ -11,6 +11,7 @@ public class ProductoRest {
 		// TODO Auto-generated constructor stub
 	}
 	
+	
 	public ProductoRest(Long id, String codigo, String nombre, Float valor) {
 		super();
 		this.id = id;

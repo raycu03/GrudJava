@@ -14,12 +14,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.demo.aplicacion.ProductoAplicacion;
-import com.example.demo.dominio.model.Producto;
-import com.example.demo.dominio.service.ProductoService;
-import com.example.demo.infraestructura.dto.ProductoDto;
+
 import com.example.demo.infraestructura.dto.ProductoRest;
 import com.example.demo.infraestructura.mapper.ProductoMapper;
-import com.example.demo.shared.dominio.Id;
+
 
 @RestController
 @RequestMapping("/producto")
@@ -71,6 +69,8 @@ public class ProductoControllers {
 		productoAplicacion.actualizar(producto);
 		
 	}
+	
+	
 	
 		
 

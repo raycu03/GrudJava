@@ -5,11 +5,8 @@ import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.*;
 
-import com.example.demo.dominio.model.Producto;
 import com.example.demo.dominio.service.ProductoService;
-import com.example.demo.infraestructura.dto.ProductoDto;
 import com.example.demo.infraestructura.dto.ProductoRest;
 import com.example.demo.infraestructura.mapper.ProductoMapper;
 
@@ -58,8 +55,7 @@ public class ProductoAplicacion {
 			productoService.actualizar(productoMapper.dtoDominio(producto));
 			//productoMapper.convertir(productoService.actualizar(producto));
 			
-			
-			
+				
 		}
 		
 		
