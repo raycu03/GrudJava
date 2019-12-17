@@ -49,11 +49,9 @@ public class ProductoAplicacion {
 		
 		public void actualizar( ProductoRest producto) {
 			
-//			productoRepository.findById(producto.getId()).orElseThrow(() -> new RegistroNoEncontradoExeception());
-//			productoRepository.save(producto);
 			productoMapper.dominiodtoapi(productoService.buscarXId(producto.getId()));
 			productoService.actualizar(productoMapper.dtoDominio(producto));
-			//productoMapper.convertir(productoService.actualizar(producto));
+		
 			
 				
 		}

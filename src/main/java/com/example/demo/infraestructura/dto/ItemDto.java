@@ -16,36 +16,22 @@ import com.example.demo.dto.BaseEntity;
 public class ItemDto extends BaseEntity{
 
     
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
 	private Float cantidad;
 	private Float valor_total;
-	
-	@OneToOne(targetEntity = ProductoDto.class)
-    private ProductoDto producto;
 	
 	public ItemDto() {
 		// TODO Auto-generated constructor stub
 	}
 	
-
-	public ItemDto(Long id, Float cantidad, Float valor_total, ProductoDto producto) {
+	public ItemDto(Float cantidad, Float valor_total, ProductoDto producto) {
 		super();
-		this.id = id;
 		this.cantidad = cantidad;
 		this.valor_total = valor_total;
 		this.producto = producto;
 	}
 
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
+	@OneToOne(targetEntity = ProductoDto.class)
+    private ProductoDto producto;
 
 	public Float getCantidad() {
 		return cantidad;
@@ -71,7 +57,6 @@ public class ItemDto extends BaseEntity{
 		this.producto = producto;
 	}
 	
-
-
+	
 
 }

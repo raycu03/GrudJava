@@ -1,5 +1,7 @@
 package com.example.demo.infraestructura.mapper;
 
+import org.springframework.stereotype.Component;
+
 import com.example.demo.dominio.model.Item;
 import com.example.demo.dominio.model.Producto;
 import com.example.demo.infraestructura.dto.ItemDto;
@@ -15,6 +17,7 @@ import com.example.demo.shared.dominio.Valor_total;
 import com.example.demo.shared.infraestructura.mapper.MapperApiRest;
 import com.example.demo.shared.infraestructura.mapper.MapperRepocitory;
 
+@Component
 public class ItemMapper implements MapperRepocitory<Item, ItemDto>, MapperApiRest<Item, ItemRest>{
 
 
