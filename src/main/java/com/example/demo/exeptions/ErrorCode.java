@@ -1,4 +1,4 @@
-package com.example.demo.dto;
+package com.example.demo.exeptions;
 
 public class ErrorCode {
 	private String codigo;

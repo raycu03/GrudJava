@@ -9,8 +9,6 @@ import javax.persistence.Id;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.example.demo.dto.BaseEntity;
-
 @Entity
 @Table(name="items")
 public class ItemDto extends BaseEntity{

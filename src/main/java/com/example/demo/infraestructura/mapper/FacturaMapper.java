@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.example.demo.dominio.model.Factura;
 import com.example.demo.dominio.model.Item;
@@ -15,6 +16,7 @@ import com.example.demo.shared.dominio.Valor_total;
 import com.example.demo.shared.infraestructura.mapper.MapperApiRest;
 import com.example.demo.shared.infraestructura.mapper.MapperRepocitory;
 
+@Component
 public class FacturaMapper implements MapperApiRest<Factura, FacturaDto>, MapperRepocitory<Factura, FacturaRest>{
 
 	@Autowired

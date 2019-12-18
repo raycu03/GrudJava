@@ -1,4 +1,4 @@
-package com.example.demo.dto;
+package com.example.demo.infraestructura.dto;
 
 import java.util.Date;
 

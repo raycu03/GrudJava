@@ -1,4 +1,4 @@
-package com.example.demo.exeptions;
+/*package com.example.demo.exeptions;
 
 import java.util.UUID;
 import java.util.logging.Logger;
@@ -7,8 +7,6 @@ import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-
-import com.example.demo.dto.ErrorCode;
 
 
 
@@ -104,4 +102,4 @@ public class ExceptionsHandler {
 		return uuid;
 	}
 	
-}
+}*/
